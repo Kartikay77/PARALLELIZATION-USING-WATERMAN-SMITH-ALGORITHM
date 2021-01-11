@@ -7,7 +7,7 @@ A highly efficient and simple implementation of the Smith-Waterman algorithm for
 
 
 ## How to Use
-### Serial Version
+### [Serial Version](https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/blob/main/serial_smithW.c)
 * Compile the project
     
     ```bash
@@ -19,7 +19,7 @@ A highly efficient and simple implementation of the Smith-Waterman algorithm for
     ./serial_smithW <number_of_col> <number_of_rows>
     ```
 
-### Parallel Version
+### [Parallel Version](https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/blob/main/omp_smithW.c)
 * Compile the project
     
     ```bash
