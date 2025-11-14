@@ -1,53 +1,91 @@
-# Smith-Waterman Algorithm in OpenMP
-A highly efficient and simple implementation of the Smith-Waterman algorithm for local alignment of sequences.
+# Smith–Waterman Algorithm in OpenMP
+A highly efficient implementation of the Smith–Waterman local alignment algorithm with both serial and parallel (OpenMP) versions.  
+This project demonstrates correctness, diagonal wavefront parallelization, and performance speedup using multiple threads.
 
+---
 
-## Sample Output
-![Demo Doccou alpha](https://github.com/TheFighters/Smith-Waterman/blob/master/Media/sampleOutput.png?raw=true)
+## 📌 Features
+- Serial implementation of Smith–Waterman  
+- Parallel OpenMP implementation using wavefront (diagonal) parallelization  
+- Debug mode to print the Similarity Matrix & Predecessor Matrix  
+- Performance benchmark with multiple thread counts  
+- Clean and minimal C implementation
 
+---
 
-## How to Use
-### [Serial Version](https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/blob/main/serial_smithW.c)
-* Compile the project
-    
-    ```bash
-    gcc serial_smithW.c -o serial_smithW -fopenmp -DDEBUG
-    ```
-* Run the program:
-    
-    ```bash
-    ./serial_smithW <number_of_col> <number_of_rows>
-    ```
+## 📊 Sample Output
 
-### [Parallel Version](https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/blob/main/omp_smithW.c)
-* Compile the project
-    
-    ```bash
-    gcc omp_smithW.c -o omp_smithW -fopenmp -DDEBUG
-    ```
-* Run the program:
-    
-    ```bash
-    ./omp_smithW <number_of_threads> <number_of_col> <number_of_rows>
-    ```
-    
-## Bug Reports & Feature Requests
-You can help by reporting bugs, suggesting features, reviewing feature specifications or just by sharing your opinion.
-Use [GitHub Issues](https://github.com/TheFighters/Smith-Waterman/issues) for all of that.
+### **Serial Output**
+![Serial Output](https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/blob/main/Serial.PNG)
 
-## To do
-* Display the result in a more user-friendly way.
-* Make speedup tests to show how OpenMP accelerated the code.
-* Add documentation about the diagonal approach used to implement the parallel algorithm.
-    
-    
-## Contributing
-1. Fork the project.
-2. Create a branch for your new feature.
-3. Test your code.
-5. Submit a pull request.
+### **Parallel Output**
+![Parallel Output](https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/blob/main/Paraller.png)
 
-All pull requests are welcome !
+### **OpenMP Timing Comparison**
+![Time Comparison](https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/blob/main/Time_OMP.png)
 
-## Authors
-This project was develloped by [Kartikay Gupta](https://github.com/Kartikay77)
+---
+
+## 🚀 How to Use
+
+### 📌 Serial Version  
+[serial_smithW.c](https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/blob/main/serial_smithW.c)
+
+#### Compile:
+\`\`\`bash
+gcc serial_smithW.c -o serial_smithW -fopenmp -DDEBUG
+\`\`\`
+
+#### Run:
+\`\`\`bash
+./serial_smithW <num_columns> <num_rows>
+\`\`\`
+
+---
+
+### ⚡ Parallel OpenMP Version  
+[omp_smithW.c](https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/blob/main/omp_smithW.c)
+
+#### Compile:
+\`\`\`bash
+gcc omp_smithW.c -o omp_smithW -fopenmp -DDEBUG
+\`\`\`
+
+#### Run:
+\`\`\`bash
+./omp_smithW <num_threads> <num_columns> <num_rows>
+\`\`\`
+
+---
+
+## 📈 Parallelization Strategy  
+This implementation uses **anti-diagonal (wavefront) parallelism**, allowing all cells on the same diagonal to be computed simultaneously because they are independent.
+
+This approach provides significant speedup over the serial version, as shown in the timing comparison.
+
+---
+
+## 🐞 Bug Reports & Feature Requests  
+Report issues or suggest features:  
+👉 https://github.com/Kartikay77/PARALLELIZATION-USING-WATERMAN-SMITH-ALGORITHM/issues
+
+---
+
+## 📌 To-Do  
+- Improve visualization of alignment path  
+- Add more extensive speedup benchmarking  
+- Add documentation of wavefront parallelism  
+
+---
+
+## 🤝 Contributing
+1. Fork the repository  
+2. Create a feature branch  
+3. Test your changes  
+4. Submit a pull request  
+
+---
+
+## 👤 Author  
+Developed by **[Kartikay Gupta](https://github.com/Kartikay77)**
+
